@@ -1,0 +1,130 @@
+
+    <div class="card mb-3 animated fadeIn faster">
+        <div class="row">
+            <div class= "col mt-5 mb-5">
+                <h1 class="ml-4 tituloheader">To do list</h1>
+                <h1 class="ml-4 titulofecha">{{fecha | date : 'fullDate':'':'es' }}</h1>
+            </div>
+
+            <div class="col mt-5 mb-5">
+                <img src="assets/img/lucas-sankey.jpg" class="img-thumb2 img-circle imgmarginleftphoto">
+            </div> 
+        </div>
+        <div *ngIf="!cargando && tareas.length > 0" class="card-body artboard animated fadeIn faster">
+            <div class="row mt-3 mb-3 ml-1">
+                <div *ngIf="tareas.length==0" class="sizeTituloTarea" >
+                    <h1 class="titulotarea">Tareas </h1>
+                </div>
+                
+                <div *ngIf="tareas.length==0" >
+                    <h1 class="tituloasignadas mt-1" > (  asignadas)</h1>
+                </div>
+                
+                <div *ngIf="tareas.length!=0" class="sizeTituloTarea">       
+                    <h1 class="titulotarea" >Tareas </h1>
+                </div> 
+
+                <div *ngIf="tareas.length!=0" >
+                    <h1 class="tituloasignadas mt-1 ml-1" > (  asignadas)</h1>                    
+                </div> 
+            </div>
+
+            <div *ngFor="let tarea of tareas; let i=index" class="card border-light mb-3"> 
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col mt-3 ml-2">
+                            <label *ngIf="tarea.activo" class="tituloaactiva">Activa</label>
+                            <label *ngIf="!tarea.activo" class="tituloInactiva">Finalizada</label>
+                            
+                        </div>
+                        <div class="col mt-2 text-right">
+                            <button 
+                                class="btn medium btn-md border-radius mr-2"
+                                (click) = "agregarTiempo( tarea , i )">                               
+                                Agregar Tiempo
+                            </button>
+                        </div>                                
+                    </div>
+                            
+                    <hr class="my-4">
+                            
+                    <div class="row">
+                        <div class="col ml-2">
+                            <div class="row">
+                                <img src="assets/img/noimage.png" class="ml-2 img-thumb img-circle 2x">
+                                <h5 class="ml-1 mt-2 nombre">{{tarea.nombre}}</h5>
+                            </div>
+                        </div>
+                        <div class="col mt-0">
+                            <div class="row">
+                                <div class="sizeReloj mt-0">
+                                    <i *ngIf="tarea.activo" class="fa fa-clock-o fa-2x"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <h5 *ngIf="tarea.activo" class="tiempo">Tiempo restante {{ tarea.tiempo }} hs.</h5>
+                                    <h5 *ngIf="!tarea.activo" class="tiempo"></h5>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 ml-0">
+                        <div class="col">
+                            <h5 class="titulo">{{tarea.titulo}}</h5>
+                        </div>
+
+                        <div class="col">
+                                <div class="row taskbox">
+                                    <div >                        
+                                        <button class="btn btn-light imgmarginleft"
+                                            [routerLink]="['/tarea',tarea.id]">
+                                            <i class="fa fa-eye"></i>                    
+                                        </button>                     
+                                    </div>
+                                    <div>    
+                                        <button class="btn btn-light btn-md imgmarginleft"
+                                            (click) = "borrarTarea( tarea , i )">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </div>        
+                                </div>                                                     
+                            <!--<a tabindex="0" class="btn btn-light btn-sm imgmarginleft" role="button" data-toggle="popover" data-trigger="focus" data-content="And here's some amazing content. It's very engaging. Right?"><i class="fa fa-bars"></i></a>-->
+                        </div>
+                        
+                    </div>
+                    <div class="row ml-3 mr-4">
+                        <p class="descripcion">{{tarea.descripcion}}</p>        
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2 bottombtn">
+        <div class="col text-right">
+            <button routerLink="/tarea/nueva" 
+                class="btn-agregar border-radius-agregar">
+                <i class="fa fa-plus"></i>                
+            </button>
+        </div>
+    </div>
+
+
+    <div *ngIf="!cargando && tareas.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">There's no tasks</h4>
+        <p>
+            <i class="fa fa-exclamation-circle fa-2x"></i>
+        </p>        
+    </div>
+    
+    <div *ngIf="cargando"
+    class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Loading</h4>
+        <p>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            Wait please..
+        </p>
+    </div>

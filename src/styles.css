@@ -1,0 +1,226 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    /*background-color: black;*/
+    /*color: white !important;*/
+}
+
+hr {
+    border-color: white;
+}
+
+.puntero {
+    cursor: pointer;
+}
+
+.img-circle {
+    border-radius: 100%;
+    width: 150px;
+}
+
+.card-title,
+.card-text {
+    color: black;
+}
+
+.badge {
+    margin-left: 5px;
+}
+
+.btn-outline-success {
+    margin-left: 5px;
+}
+
+.img-thumb {
+    width: 40px;
+    height: 40px;
+}
+
+.img-thumb2 {
+    width: 60px;
+    height: 60px;
+}
+
+.artboard{
+    background-color: #f3f5fa;
+}
+
+.bodybackground{
+    background-color: white;
+}
+
+.imgmarginleftphoto{
+    margin-left: 55%;
+}
+
+.imgmarginleft{
+    margin-left: 70%;
+}
+
+.tituloheader{
+    font-family: 'Kanit', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #010c3b; 
+}
+
+.titulofecha{
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #425195; 
+}
+
+.sizeTituloTarea{
+    width: 15%;
+}
+
+.titulotarea{
+    font-family: 'Kanit', sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    color: #010c3b;
+}
+
+.tituloasignadas{
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #425195; 
+}
+
+.tituloaactiva{
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2DC09D; 
+}
+
+.tituloInactiva{
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #DC3646; 
+}
+
+.medium{
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    width: 142px;
+    height: 38px;
+    background: #425195;
+    color:#fff;
+}
+
+.sizeReloj{
+    width: 20%;
+}
+
+/*Efectos*/
+
+.border-radius{
+	border-radius: 10px;
+}
+
+.nombre{
+    font-family: 'Kanit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #010C3B; 
+}
+
+.tiempo{
+    font-family: 'Kanit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333D69; 
+}
+
+.titulo{
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333D69; 
+}
+
+.descripcion{
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    color: #333D69; 
+}
+
+.taskbox{
+    padding-left: 50%;
+}
+
+.btn-agregar{
+	background: #425195;
+	color:#fff;
+    font-size: 20px;
+    line-height: 1px;
+    height: 64px;
+    width: 64px;
+	text-decoration: none;
+	/*padding: 15px 20px; 15 px arriba y abajo y 20 px en la izquierda y la derecha*/
+	display: inline-block;/*Agregamos la propiedad inline-block para usar padding , height,width etc, propiedades de bloques*/
+    margin: 0 10px;
+    border: none;
+}
+
+.btn-plus {
+    background: #425195;
+    color:#fff;
+    display:block;
+    font-size: 46px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: none;
+}
+
+.border-radius-agregar{
+	border-radius: 100px;
+}
+
+.bottombtn{
+    overflow: hidden;
+    /*aqui esta el cambio*/
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    /*fin del cambio*/
+}
+
+/* Animaciones */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}

@@ -1,0 +1,88 @@
+<h1><small>Nueva Tarea</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+          <button class="btn btn-danger"
+                routerLink="/heroes">
+                <i class="fa fa-arrow-left"></i>
+                Regresar    
+          </button>  
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="Guardar( f )" #f="ngForm">
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder = "Firebase ID"
+                       [(ngModel)] = "tarea.id"
+                       name = "id"
+                       disabled="disabled">
+                <small class="form-text text-muted">This field is self generated</small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder= "Ingresa tu nombre"
+                       [(ngModel)] = "tarea.nombre"
+                       name = "nombre"
+                       required>                
+            </div>
+
+            <div class="form-group">
+                <label>Título de la Tarea:</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder= "Ingresa el título de la tarea"
+                       [(ngModel)] = "tarea.titulo"
+                       name = "titulo"
+                       required>                
+            </div>
+
+            <div class="form-group">
+                <label>Tarea:</label>
+                <textarea type="text"
+                       class="form-control"
+                       placeholder= "Ingresa la descripción de tu tarea"
+                       [(ngModel)] = "tarea.descripcion"
+                       name = "descripcion"
+                       rows="3"
+                       ></textarea>                
+            </div>
+
+            <div class="form-group">
+                <label>Estado de la tarea:</label>
+                <br>
+               
+                        <button *ngIf="tarea.activo"
+                                (click) = "tarea.activo = false"
+                        class="btn btn-outline-success w-50" type="button">
+                            <i class="fa fa-smile-o"></i>
+                            Activo
+                        </button>
+                
+                        <button *ngIf="!tarea.activo"
+                                (click) = "tarea.activo = true" 
+                            class="btn btn-outline-danger w-50" type="button">
+                            <i class="fa fa-frown-o"></i>
+                            Inactivo
+                        </button>                    
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
